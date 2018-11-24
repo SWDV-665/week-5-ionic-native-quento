@@ -24,24 +24,24 @@ export class HomePage {
   }
 
   removeItem(item, index){
-    
-    this.showToast("Remove", item.name);
+    // Show action notification
+    this.showToast("Remove", item, index);
 
     // Use Groceries Provider to remove item
     this.dataService.removeItem(index);    
   }
 
   shareItem(item, index){
-    
-    this.showToast("Share", item.name);
+    // Show action notification
+    this.showToast("Share", item, index);
 
     // Use Groceries Provider to remove item
     //this.dataService.removeItem(index);    
   }
 
   editItem(item, index){
-    
-    this.showToast("Edit", item.name);
+    // Show action notification
+    this.showToast("Edit", item, index);
 
     // Delete item from items array    
     this.dialogService.showPrompt(item, index);
@@ -52,13 +52,13 @@ export class HomePage {
     this.dialogService.showPrompt();   
   }
 
-  showToast(itemAction, itemName){
+  showToast(itemAction, itemObj, index){
     // Show a toast message to Troubleshoot action occurrance.
-    console.log(itemAction + " item .." + itemName);
+    console.log(itemAction + " item .." , index);
     
     // Show item action message (toast)
     const toast = this.toastCtrl.create({
-      message: itemAction + ' item - ' + itemName + " ...",
+      message: itemAction + ' item - ' + itemObj.name + " ...",
       duration: 3000
     });
     toast.present();
