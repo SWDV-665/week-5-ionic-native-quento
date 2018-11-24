@@ -22,10 +22,14 @@
           <ion-icon name="create"></ion-icon>
           Edit
         </button> 
-        <button (click)="removeItem(item, i)" ion-button color="light" icon-start>
+        <button (click)="shareItem(item, i)" ion-button color="light" icon-start>
+          <ion-icon name="share"></ion-icon>
+          Share
+        </button>
+        <button (click)="removeItem(item, i)" ion-button color="danger" icon-start>
           <ion-icon name="trash"></ion-icon>
           Delete
-        </button>          
+        </button>                  
       </ion-item-options>
     </ion-item-sliding>
     
