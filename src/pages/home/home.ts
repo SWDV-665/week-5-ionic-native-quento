@@ -35,8 +35,22 @@ export class HomePage {
     toast.present();
 
     // Use Groceries Provider to remove item
-    this.dataService.removeItem(index);
+    this.dataService.removeItem(index);    
+  }
+
+  shareItem(item, index){
+    // Troubleshooting
+    console.log("Sharing item .." + item.name, index);
     
+    // Show item removal message (toast)
+    const toast = this.toastCtrl.create({
+      message: 'Sharing item - ' + item.name + " ...",
+      duration: 3000
+    });
+    toast.present();
+
+    // Use Groceries Provider to remove item
+    //this.dataService.removeItem(index);    
   }
 
   editItem(item, index){
@@ -58,5 +72,6 @@ export class HomePage {
     console.log("Item added"); 
     this.dialogService.showPrompt();   
   }
+
 
 }
