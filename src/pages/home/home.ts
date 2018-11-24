@@ -33,11 +33,20 @@ export class HomePage {
   }
 
   shareItem(item, index){
-    // Show action notification
-    this.showToast("Share", item, index);
+    
 
-    // Use Groceries Provider to remove item
-    //this.dataService.removeItem(index);    
+    let message = "Grocery Item - Name: " + item.name + " - Quantity: " + item.quantity;
+    let subject = "Shared via Grocery app";
+    // Share an item    
+    this.socialSharing.share().then(() => {
+      console.log("Shared successfully");
+      // Show action notification
+      this.showToast("Shared successfully", item, index);
+    }).catch((error) => {
+      console.error("Error while sharing ", error);
+      // Show action notification
+      this.showToast("Share Error!", item, index);
+    });
   }
 
   editItem(item, index){
