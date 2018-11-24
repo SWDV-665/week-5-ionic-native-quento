@@ -24,45 +24,24 @@ export class HomePage {
   }
 
   removeItem(item, index){
-    // Troubleshooting
-    console.log("Deleting item .." + item.name, index);
     
-    // Show item removal message (toast)
-    const toast = this.toastCtrl.create({
-      message: 'Deleting item - ' + item.name + " ...",
-      duration: 3000
-    });
-    toast.present();
+    this.showToast("Remove", item.name);
 
     // Use Groceries Provider to remove item
     this.dataService.removeItem(index);    
   }
 
   shareItem(item, index){
-    // Troubleshooting
-    console.log("Sharing item .." + item.name, index);
     
-    // Show item removal message (toast)
-    const toast = this.toastCtrl.create({
-      message: 'Sharing item - ' + item.name + " ...",
-      duration: 3000
-    });
-    toast.present();
+    this.showToast("Share", item.name);
 
     // Use Groceries Provider to remove item
     //this.dataService.removeItem(index);    
   }
 
   editItem(item, index){
-    // Troubleshooting
-    console.log("Edit item .." + item.name, index);
     
-    // Show item removal message (toast)
-    const toast = this.toastCtrl.create({
-      message: 'Editing item - ' + item.name + " ...",
-      duration: 3000
-    });
-    toast.present();
+    this.showToast("Edit", item.name);
 
     // Delete item from items array    
     this.dialogService.showPrompt(item, index);
@@ -73,5 +52,15 @@ export class HomePage {
     this.dialogService.showPrompt();   
   }
 
-
+  showToast(itemAction, itemName){
+    // Show a toast message to Troubleshoot action occurrance.
+    console.log(itemAction + " item .." + itemName);
+    
+    // Show item action message (toast)
+    const toast = this.toastCtrl.create({
+      message: itemAction + ' item - ' + itemName + " ...",
+      duration: 3000
+    });
+    toast.present();
+  }
 }
