@@ -1,8 +1,8 @@
-# Week 4 - Groceries App
+# Week 5 - Groceries App
 
-## CRUD Operations
+## Ionic Native
 
-Groceries app should be able to perform create, read, update, and delete (CRUD).
+Groceries  app should do the CRUD operations and use the Ionic Native plugin.
 
 For Add Item - Use a drop downf or Quantity instead of an input field.
 
